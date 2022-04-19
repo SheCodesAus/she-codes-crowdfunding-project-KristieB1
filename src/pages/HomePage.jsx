@@ -4,9 +4,9 @@ import ProjectCard from "../components/ProjectCard/ProjectCard";
 
 function HomePage() {
     return (
-        <div>
+        <div id="project-list">
             {allProjects.map((projectData, key) => {
-            return <ProjectCard key={key} projectData={projectdata};
+            return <ProjectCard key={key} projectData={projectData} />;
             })}
         </div>
     );
