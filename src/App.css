@@ -1,6 +1,30 @@
+body{
+  background-color: peachpuff;
+}
+
+nav a {
+  display: flex;
+  align-self: center;
+  margin-bottom: 10px;
+}
+
+
+
+nav {
+  background-color: antiquewhite;
+}
+
 #project-list {
   display: grid;
   grid-template-columns: 30% 30% 30%;
   column-gap: 10px;
-  row-gap: 10px;
+  row-gap: 1px;
+  
+  
 }
+
+
+div.project-card {
+  background-color: whitesmoke;
+}
+
