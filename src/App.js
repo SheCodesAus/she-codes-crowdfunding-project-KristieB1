@@ -7,6 +7,7 @@ import "./App.css";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ProjectCreatePage from "./pages/ProjectCreate";
+import ProjectUpdatePage from "./pages/ProjectUpdatePage";
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
 
         <Routes>
           <Route path="/projects" element={<ProjectCreatePage />} />
+          <Route path="/projects/:id" element={<ProjectUpdatePage />} />
           <Route path="/project/:id" element={<ProjectPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/users/register/" element={<RegisterPage />} />
