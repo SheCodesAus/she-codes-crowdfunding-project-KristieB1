@@ -36,6 +36,7 @@ function ProjectPage() {
             <img src={projectData.secondary_image} alt="project image 2"/>
             <h3>Project Info: {projectData.description}</h3>
             <h3>Pledges:</h3>
+            <p>Pledge Type: {projectData.pledge_type}</p>
             <ul>
                 {projectData.pledges.map((pledgeData, key) => {
                     return (

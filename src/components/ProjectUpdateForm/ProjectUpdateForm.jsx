@@ -20,16 +20,30 @@ import { Link, useParams } from "react-router-dom";
 function ProjectUpdateForm() {
     const [project, setProject] = useState();
     const { id } = useParams();
+    console.log(id);
 
     useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}projects/${id}`)
     .then((results) => {
+        console.log("results",results);    
     return results.json();
     })
+    
     .then((data) => {
         setProject(data);
+        console.log("id-project",id.project);
+        console.log("data",data);
     });
+    console.log("prjonly", project);
+    // console.log("prjid2", project.id);
+  
     }, [id]);
+
+    
+    if (!project) {
+        return <h3>Loading..</h3>;
+    }
+        
 
 
   // State
@@ -80,6 +94,7 @@ function ProjectUpdateForm() {
       });
       const data = await res.json();
       console.log(data);
+      console.log(project);
     } catch (err) {
       console.log(err);
     }
@@ -91,7 +106,7 @@ function ProjectUpdateForm() {
     );
   }
 
-  return (
+  return ( 
     <form>
       <div>
         <label htmlFor="title">Project Title:</label>
