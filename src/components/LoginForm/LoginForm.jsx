@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 function LoginForm() {
     const [credentials, setCredentials] = useState({
@@ -16,6 +16,9 @@ function LoginForm() {
         }));
     };
 
+    
+    const token = window.localStorage.getItem("token");
+        
     // const postData = async () => {
     //     const response = await fetch(
     //         `${process.env.REACT_APP_API_URL}api-token-auth/`,
@@ -58,14 +61,32 @@ function LoginForm() {
                     }
                 );
                 const data = await response.json();
+                
                 window.localStorage.setItem("token", data.token);
                 window.localStorage.setItem("username", credentials.username);
+                if (data.token===undefined) {
+                    console.log("hello")
+                    return (
+                      <h2 >Incorrect credentials</h2>
+                    );
+                  }
+        else{
                 navigate("/");
+            }
             } catch (err) {
                 console.log(err);
             }
+        
+          
         }
     };
+
+    // if (!token) {
+    //     return (
+    //       <Link to="/login">Incorrect credentials</Link>
+    //     );
+    //   }
+    
 
 
     return (

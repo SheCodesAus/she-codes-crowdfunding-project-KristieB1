@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 
 
 // function ProjectPage() {
@@ -19,6 +19,7 @@ import { Link, useParams } from "react-router-dom";
 
 function ProjectUpdateForm() {
     const [project, setProject] = useState();
+    const navigate = useNavigate();
     const { id } = useParams();
     console.log(id);
 
@@ -61,6 +62,8 @@ function ProjectUpdateForm() {
 //   });
 
   // Actions and Helpers
+  
+
   const handleChange = (event) => {
     const { id, value } = event.target;
     setProject((prevProject) => ({
@@ -81,10 +84,12 @@ function ProjectUpdateForm() {
         body: JSON.stringify({
           title: project.title,
           blurb: project.blurb,
+          description: project.description,
           category_id: project.category_id,
           goal: project.goal,
           goal_date: project.goal_date,
           primary_image: project.primary_image,
+          secondary_image: project.secondary_image,
           is_open: true,
           is_archived: false,
           pledge_type_id: project.pledge_type_id,
@@ -95,14 +100,15 @@ function ProjectUpdateForm() {
       const data = await res.json();
       console.log(data);
       console.log(project);
+      navigate(`/project/${project.id}/`);
     } catch (err) {
       console.log(err);
     }
   };
 
-  if (!token) {
+  if (!token || token===null || token===undefined || token==="undefined"){
     return (
-      <Link to="/login">Please login to pledge to this amazing project</Link>
+      <Link to="/login">Please login to edit to this project</Link>
     );
   }
 
@@ -156,11 +162,29 @@ function ProjectUpdateForm() {
         />
       </div>
       <div>
-        <label htmlFor="primary_image">Image:</label>
+        <label htmlFor="description">Description:</label>
+        <input
+          type="text"
+          id="description"
+          value={project.description}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="primary_image">Hero Image:</label>
         <input
           type="url"
           id="primary_image"
           value={project.primary_image}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="secondary_image">Image:</label>
+        <input
+          type="url"
+          id="secondary_image"
+          value={project.secondary_image}
           onChange={handleChange}
         />
       </div>

@@ -7,10 +7,12 @@ function ProjectForm() {
   const [project, setProject] = useState({
     title: "",
     blurb: "",
+    description: "",
     category_id: "",
     goal: "",
     goal_date: "",
     primary_image: "",
+    secondary_image: "",
     is_open: "",
     is_archived: "",
     pledge_type_id: "",
@@ -37,10 +39,12 @@ function ProjectForm() {
         body: JSON.stringify({
           title: project.title,
           blurb: project.blurb,
+          description: project.description,
           category_id: project.category_id,
           goal: project.goal,
           goal_date: project.goal_date,
           primary_image: project.primary_image,
+          secondary_image: project.primary_image,
           is_open: true,
           is_archived: false,
           pledge_type_id: project.pledge_type_id,
@@ -55,11 +59,11 @@ function ProjectForm() {
     }
   };
 
-  if (!token) {
-    return (
-      <Link to="/login">Please login to pledge to this amazing project</Link>
-    );
-  }
+//   if (!token) {
+//     return (
+//       <Link to="/login">Please login to pledge to this amazing project</Link>
+//     );
+//   }
 
   return (
     <form>
@@ -119,11 +123,29 @@ function ProjectForm() {
         />
       </div>
       <div>
+        <label htmlFor="description">Description:</label>
+        <input
+          type="text"
+          id="description"
+          placeholder="Enter your project description"
+          onChange={handleChange}
+        />
+      </div>
+      <div>
         <label htmlFor="primary_image">Image:</label>
         <input
           type="url"
           id="primary_image"
           placeholder="Enter your main image URL"
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="secondary_image">Image:</label>
+        <input
+          type="url"
+          id="secondary_image"
+          placeholder="Enter your secondary image URL"
           onChange={handleChange}
         />
       </div>

@@ -34,7 +34,12 @@ function ProjectPage() {
             <h3>Goal Date: {projectData.goal_date}</h3>
             <h3>Progress %: {projectData.progress_perc}</h3>
             <img src={projectData.secondary_image} alt="project image 2"/>
+            <h3>Project blurb: {projectData.blurb}</h3>
             <h3>Project Info: {projectData.description}</h3>
+            
+            <a href={"/projects/"+projectData.id} >
+                <button> Update Project </button>
+            </a>
             <h3>Pledges:</h3>
             <p>Pledge Type: {projectData.pledge_type}</p>
             <ul>

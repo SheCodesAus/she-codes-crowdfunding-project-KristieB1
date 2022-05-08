@@ -43,7 +43,7 @@ function PledgeForm({ projectId }) {
     }
   };
 
-  if (!token) {
+  if (!token || token===null || token===undefined || token==="undefined") {
     return (
       <Link to="/login">Please login to pledge to this amazing project</Link>
     );
