@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function ProjectForm() {
   // State
   const token = window.localStorage.getItem("token");
+  const navigate = useNavigate();
   const [project, setProject] = useState({
     title: "",
     blurb: "",
@@ -54,16 +55,17 @@ function ProjectForm() {
       });
       const data = await res.json();
       console.log(data);
+      navigate(`/project/${data.id}/`);
     } catch (err) {
       console.log(err);
     }
   };
 
-//   if (!token) {
-//     return (
-//       <Link to="/login">Please login to pledge to this amazing project</Link>
-//     );
-//   }
+  if (!token || token===null || token===undefined || token==="undefined") {
+    return (
+      <Link to="/login">Please login to create a project</Link>
+    );
+  }
 
   return (
     <form>

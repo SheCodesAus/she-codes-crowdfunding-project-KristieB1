@@ -65,7 +65,7 @@ function LoginForm() {
                 window.localStorage.setItem("token", data.token);
                 window.localStorage.setItem("username", credentials.username);
                 if (data.token===undefined) {
-                    console.log("hello")
+                    console.log("invalid credentials")
                     return (
                       <h2 >Incorrect credentials</h2>
                     );

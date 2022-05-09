@@ -5,6 +5,8 @@ import PledgeForm from "../components/PledgeForm/PledgeForm";
 
 function ProjectPage() {
     const [projectData, setProjectData] = useState();
+    
+    
     const { id } = useParams();
 
     useEffect(() => {
@@ -16,6 +18,21 @@ function ProjectPage() {
             setProjectData(data);
         });
     }, [id]);
+
+    const Dollars = () => {
+        const isDollars =(projectData.pledge_type);
+    if (isDollars == 'financial') {
+        return '$' }
+            return ""
+    }
+    
+       
+    const Time = () => {
+        const isTime =(projectData.pledge_type);
+    if (isTime == 'time') {
+        return 'hours' }
+            return ""
+    }
 
     if (!projectData) {
         return <h3>Loading..</h3>;
@@ -29,8 +46,8 @@ function ProjectPage() {
             <h3>Status: {projectData.status}</h3>
             <img src={projectData.primary_image} alt="hero image"/>
             <h3>Date Created: {projectData.date_created}</h3>
-            {/* <h3>{`Status: ${projectData.is_open}`}</h3> */}
-            <h3>Project Goal: {projectData.goal}</h3>
+            <h3>{`Status: ${projectData.is_open}`}</h3>
+            <h3>Project Goal: {Dollars()}{projectData.goal} {Time()}</h3>
             <h3>Goal Date: {projectData.goal_date}</h3>
             <h3>Progress %: {projectData.progress_perc}</h3>
             <img src={projectData.secondary_image} alt="project image 2"/>
@@ -46,7 +63,7 @@ function ProjectPage() {
                 {projectData.pledges.map((pledgeData, key) => {
                     return (
                         <li>
-                            {pledgeData.amount} from {pledgeData.supporter_name}
+                            {Dollars()}{pledgeData.amount}{Time()} from {pledgeData.supporter_name}
                         </li>
                     );
                 })}

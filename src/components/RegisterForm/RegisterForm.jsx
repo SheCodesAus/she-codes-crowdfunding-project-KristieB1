@@ -64,7 +64,7 @@ function RegisterForm() {
                 const data = await response.json();
                 window.localStorage.setItem("token", data.token);
                 window.localStorage.setItem("username", credentials.username);
-                navigate("/");
+                navigate("/login");
             } catch (err) {
                 console.log(err);
             }
@@ -129,7 +129,7 @@ function RegisterForm() {
                 />
             </div>
             <button type="submit" onClick={handleSubmit}>
-                Login
+                Register
             </button>
         </form>
     );
