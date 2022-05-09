@@ -1,6 +1,6 @@
 import React from "react";
 import {Link, useNavigate} from "react-router-dom";
-// import "./Nav.css";
+import "./Nav.css";
 
 
 function Nav(){
@@ -83,20 +83,30 @@ function Nav(){
     }
 
     return(
-        
-        <nav className="navbar">
+
+        <div>
+            <nav className="navbar">
             <div className="left-nav">
            
             <Link to="/">Homepage</Link>
-            </div>
             <Link to="/users/UserHome">My Home Page</Link>
             <Link to="/projects">Create a Project</Link>
-
-            <div className="right-nav">
+            </div>
+        <header className="Header">
+            <h1>Header</h1>
+        </header>
+        <nav>
+        <div className="right-nav">
             {checkUser()}
             {/* <Link to="/project">ProjectPage</Link> */}
             </div>
         </nav>
+       
+           
+
+            
+        </nav>
+        </div>
     );
 }
 
