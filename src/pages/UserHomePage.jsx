@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { allProjects } from "../data";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
 
-function UserHome() {
+function UserHomePage() {
     const [projectList, setProjectList] = useState();
 
     useEffect(() => {
@@ -28,4 +28,4 @@ function UserHome() {
     );
 }
 
-export default HomePage;
+export default UserHomePage;

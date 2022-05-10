@@ -8,6 +8,8 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ProjectCreatePage from "./pages/ProjectCreate";
 import ProjectUpdatePage from "./pages/ProjectUpdatePage";
+import UserEditPage from "./pages/UserEditPage";
+import UserHomePage from "./pages/UserHomePage";
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           {/* <Route path="/logout" element={<HomePage />} /> */}
           <Route path="/users/register/" element={<RegisterPage />} />
+          <Route path="/user/:id/" element={<UserEditPage />} />
+          <Route path="/users/:id/" element={<UserHomePage />} />
           <Route path="/" element={<HomePage />} />
         </Routes>
       </div>
