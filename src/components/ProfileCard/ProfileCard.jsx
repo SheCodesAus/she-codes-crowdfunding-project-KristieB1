@@ -7,7 +7,7 @@ function ProfileCard(props) {
     const { profileData } = props;
     return (
         <div className="profile-card">
-            <Link to={`/user/${profileData.id}`}>
+            <Link to="/users/home/">
                 <h2>{profileData.username}</h2>
                 <img src={profileData.avatar} alt="Profile avatar image"/>
                 <h3>{profileData.firstName}</h3>

@@ -18,7 +18,7 @@ function LoginForm() {
 
     
     const token = window.localStorage.getItem("token");
-        
+    const id = window.localStorage.getItem("id");
     // const postData = async () => {
     //     const response = await fetch(
     //         `${process.env.REACT_APP_API_URL}api-token-auth/`,

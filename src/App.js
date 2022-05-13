@@ -25,8 +25,8 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           {/* <Route path="/logout" element={<HomePage />} /> */}
           <Route path="/users/register/" element={<RegisterPage />} />
-          <Route path="/user/:id/" element={<UserEditPage />} />
-          <Route path="/users/:id/" element={<UserHomePage />} />
+          <Route path="/users/home/" element={<UserEditPage />} />
+          <Route path="/user/home/" element={<UserHomePage />} />
           <Route path="/" element={<HomePage />} />
         </Routes>
       </div>

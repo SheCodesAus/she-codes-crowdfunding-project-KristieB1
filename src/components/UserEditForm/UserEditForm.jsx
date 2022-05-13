@@ -18,8 +18,15 @@ function UserEditForm() {
     const { id } = useParams();
     console.log(id);
 
+    const token = window.localStorage.getItem("token");
+
     useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}users/${id}`)
+    fetch(`${process.env.REACT_APP_API_URL}users/home`,{
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${token}`,
+        }   
+        })
     .then((results) => {
         console.log("results",results);    
     return results.json();
@@ -38,7 +45,7 @@ function UserEditForm() {
         return <h3>Loading..</h3>;
     }
 
-    const token = window.localStorage.getItem("token");
+    
 
     const handleChange = (event) => {
         const { id, value } = event.target;
@@ -80,11 +87,12 @@ function UserEditForm() {
         if (credentials.username && credentials.password && credentials.password2) {
             try {
                 const response = await fetch(
-                    `${process.env.REACT_APP_API_URL}user/${id}`,
+                    `${process.env.REACT_APP_API_URL}users/home/`,
                     {
                         method: "put",
                         headers: {
                             "Content-Type": "application/json",
+                            Authorization: `Token ${token}`,
                         },
                         body: JSON.stringify(credentials),
                     }

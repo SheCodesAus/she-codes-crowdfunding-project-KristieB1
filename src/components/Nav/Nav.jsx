@@ -19,6 +19,10 @@ function Nav(){
         navigate("/users/register")
     }
 
+    const nevigateToUserHome = () => {
+        navigate("/users/:id")
+    }
+
     const handleSignout = () => {
         const token = window.localStorage.getItem("token")
         window.localStorage.removeItem("token")
@@ -39,6 +43,7 @@ function Nav(){
 
     const checkUser = () => {
         const token = window.localStorage.getItem("token");
+        // const userId = window.localStorage.getItem("id");
         const isUserLoggedin = !(token === null || token === undefined || token === "undefined")
         //if (!isUserLoggedin || isUserLoggedin===null || isUserLoggedin===undefined || isUserLoggedin==="undefined"){
         if(isUserLoggedin) {
@@ -89,7 +94,7 @@ function Nav(){
             <div className="left-nav">
            
             <Link to="/">Homepage</Link>
-            <Link to="/users/UserHome">My Home Page</Link>
+            <Link to="/user/home">My Home Page</Link>
             <Link to="/projects">Create a Project</Link>
             </div>
         <header className="Header">
