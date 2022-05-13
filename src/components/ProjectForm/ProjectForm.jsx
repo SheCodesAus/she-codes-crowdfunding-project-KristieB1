@@ -118,7 +118,7 @@ function ProjectForm() {
       <div>
         <label htmlFor="blurb">Blurb:</label>
         <input
-          type="text"
+          type="textarea"
           id="blurb"
           placeholder="Enter a short blurb"
           onChange={handleChange}
@@ -127,7 +127,7 @@ function ProjectForm() {
       <div>
         <label htmlFor="description">Description:</label>
         <input
-          type="text"
+          type="textarea"
           id="description"
           placeholder="Enter your project description"
           onChange={handleChange}

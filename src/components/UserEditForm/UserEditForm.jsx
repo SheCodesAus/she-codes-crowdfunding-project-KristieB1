@@ -2,14 +2,17 @@ import React, { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 
 function UserEditForm() {
-    const [credentials, setCredentials] = useState({
-        email: "",
-        username: "",
-        firstName: "",
-        lastName: "",
-        password: "",
-        password2: "",
-    });
+    const [credentials, setCredentials] = useState ();
+    
+    // ({
+    //     email: "",
+    //     username: "",
+    //     firstName: "",
+    //     lastName: "",
+    //     password: "",
+    //     password2: "",
+    // });
+
     const navigate = useNavigate();
 
     const { id } = useParams();
@@ -30,6 +33,12 @@ function UserEditForm() {
     
   
     }, [id]);
+
+    if (!credentials) {
+        return <h3>Loading..</h3>;
+    }
+
+    const token = window.localStorage.getItem("token");
 
     const handleChange = (event) => {
         const { id, value } = event.target;
@@ -83,7 +92,7 @@ function UserEditForm() {
                 const data = await response.json();
                 window.localStorage.setItem("token", data.token);
                 window.localStorage.setItem("username", credentials.username);
-                navigate("/login");
+                navigate("/users/:id/");
             } catch (err) {
                 console.log(err);
             }
@@ -91,23 +100,24 @@ function UserEditForm() {
     };
 
 
+    if (!token || token===null || token===undefined || token==="undefined") {
+        return (
+          <Link to="/login">Please login to create a project</Link>
+        );
+      }
+
     return (
         <form>
             <div>
-                <label htmlFor="username">Username:</label>
-                <input
-                    type="text"
-                    id="username"
-                    placeholder="Enter username"
-                    onChange={handleChange}
-                />
+                <h3>Update Your Details </h3>
             </div>
+            
             <div>
                 <label htmlFor="email">Email:</label>
                 <input
                     type="email"
                     id="email"
-                    placeholder="Enter email"
+                    value={credentials.email}
                     onChange={handleChange}
                 />
             </div>
@@ -116,7 +126,7 @@ function UserEditForm() {
                 <input
                     type="text"
                     id="firstName"
-                    placeholder="Enter your first name"
+                    value={credentials.firstName}
                     onChange={handleChange}
                 />
             </div>
@@ -125,30 +135,32 @@ function UserEditForm() {
                 <input
                     type="text"
                     id="lastName"
-                    placeholder="Enter your last name"
+                    value={credentials.lastName}
                     onChange={handleChange}
                 />
             </div>
             <div>
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="avatar">Avatar:</label>
                 <input
-                    type="password"
-                    id="password"
-                    placeholder="Password"
+                    type="url"
+                    id="avatar"
+                    value={credentials.avatar}
+                    placeholder="Enter Avatar image URL"
                     onChange={handleChange}
                 />
             </div>
             <div>
-                <label htmlFor="password2">Repeat Password:</label>
+                <label htmlFor="bio">Bio:</label>
                 <input
-                    type="password"
-                    id="password2"
-                    placeholder="Repeat Password"
+                    type="textarea"
+                    id="bio"
+                    value={credentials.bio}
+                    placeholder="Enter your Bio"
                     onChange={handleChange}
                 />
             </div>
             <button type="submit" onClick={handleSubmit}>
-                Register
+                Update Your Profile
             </button>
         </form>
     );

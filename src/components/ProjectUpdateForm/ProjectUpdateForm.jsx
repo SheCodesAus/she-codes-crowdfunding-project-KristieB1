@@ -155,7 +155,7 @@ function ProjectUpdateForm() {
       <div>
         <label htmlFor="blurb">Blurb:</label>
         <input
-          type="text"
+          type="textarea"
           id="blurb"
           value={project.blurb}
           onChange={handleChange}
@@ -164,7 +164,7 @@ function ProjectUpdateForm() {
       <div>
         <label htmlFor="description">Description:</label>
         <input
-          type="text"
+          type="textarea"
           id="description"
           value={project.description}
           onChange={handleChange}

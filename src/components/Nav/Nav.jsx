@@ -42,10 +42,10 @@ function Nav(){
         const isUserLoggedin = !(token === null || token === undefined || token === "undefined")
         //if (!isUserLoggedin || isUserLoggedin===null || isUserLoggedin===undefined || isUserLoggedin==="undefined"){
         if(isUserLoggedin) {
-        console.log("user is loged in isUserLoggedin=", isUserLoggedin)
+        console.log("user is logged in isUserLoggedin=", isUserLoggedin)
         }
         else {
-            console.log("user is not loged in isUserLoggedin=", isUserLoggedin)   
+            console.log("user is not logged in isUserLoggedin=", isUserLoggedin)   
         }
 
         if (isUserLoggedin) {
