@@ -34,7 +34,7 @@ function UserEditForm() {
     
     .then((data) => {
         setCredentials(data);
-        console.log("id-user",id.user);
+        //console.log("id-user",id.user);
         console.log("data",data);
     });
     
@@ -84,7 +84,7 @@ function UserEditForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if (credentials.username && credentials.password && credentials.password2) {
+        if (credentials.email && credentials.firstName&& credentials.avatar) {
             try {
                 const response = await fetch(
                     `${process.env.REACT_APP_API_URL}users/home/`,
@@ -98,9 +98,9 @@ function UserEditForm() {
                     }
                 );
                 const data = await response.json();
-                window.localStorage.setItem("token", data.token);
-                window.localStorage.setItem("username", credentials.username);
-                navigate("/users/:id/");
+                // window.localStorage.setItem("token", data.token);
+                // window.localStorage.setItem("username", credentials.username);
+                navigate("/user/home");
             } catch (err) {
                 console.log(err);
             }
@@ -110,12 +110,12 @@ function UserEditForm() {
 
     if (!token || token===null || token===undefined || token==="undefined") {
         return (
-          <Link to="/login">Please login to create a project</Link>
+          <Link to="/login">Please login or register</Link>
         );
       }
 
     return (
-        <form>
+        <form className="all-forms">
             <div>
                 <h3>Update Your Details </h3>
             </div>
@@ -152,7 +152,7 @@ function UserEditForm() {
                 <input
                     type="url"
                     id="avatar"
-                    value={credentials.avatar}
+                    value={credentials.avatar == null ? "" : credentials.avatar }
                     placeholder="Enter Avatar image URL"
                     onChange={handleChange}
                 />
@@ -162,12 +162,12 @@ function UserEditForm() {
                 <input
                     type="textarea"
                     id="bio"
-                    value={credentials.bio}
+                    value={credentials.bio == null ? "" : credentials.bio}
                     placeholder="Enter your Bio"
                     onChange={handleChange}
                 />
             </div>
-            <button type="submit" onClick={handleSubmit}>
+            <button type="submit" onClick={handleSubmit} className="all-btn">
                 Update Your Profile
             </button>
         </form>

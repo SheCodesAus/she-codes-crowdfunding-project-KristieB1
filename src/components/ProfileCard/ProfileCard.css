@@ -1,0 +1,31 @@
+
+
+.all-btn{
+    display:flex;
+    flex-direction: column;
+    flex-flow: column;
+    padding: 0.5rem 1rem .5rem 1rem;
+    /* font-size: 1.25rem; */
+    line-height: 1.5;
+    border-radius: 10px;
+    /* border-color: purple; */
+}
+
+.all-btn:hover{
+    background-color: blanchedalmond;
+}
+
+a {
+    color: black;
+    
+}
+
+a:hover {
+    background-color: beige;
+}
+
+#profile-img{
+    width: 20rem;
+    height: 20rem;
+}
+

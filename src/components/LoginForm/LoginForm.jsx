@@ -90,7 +90,9 @@ function LoginForm() {
 
 
     return (
-        <form>
+        <div>
+            <h3>Log in</h3>
+        <form className="all-forms">
             <div>
                 <label htmlFor="username">Username:</label>
                 <input
@@ -109,10 +111,11 @@ function LoginForm() {
                     onChange={handleChange}
                 />
             </div>
-            <button type="submit" onClick={handleSubmit}>
+            <button type="submit" onClick={handleSubmit} className="all-btn">
                 Login
             </button>
         </form>
+        </div>
     );
 }
 

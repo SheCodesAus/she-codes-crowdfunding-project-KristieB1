@@ -90,8 +90,8 @@ function ProjectUpdateForm() {
           goal_date: project.goal_date,
           primary_image: project.primary_image,
           secondary_image: project.secondary_image,
-          is_open: true,
-          is_archived: false,
+          is_open: project.is_open,
+          is_archived: project.is_archived,
           pledge_type_id: project.pledge_type_id,
 
 
@@ -113,7 +113,9 @@ function ProjectUpdateForm() {
   }
 
   return ( 
-    <form>
+    <div>
+      <h3>Update Your Project</h3>
+    <form className="all-forms">
       <div>
         <label htmlFor="title">Project Title:</label>
         <input
@@ -132,6 +134,24 @@ function ProjectUpdateForm() {
             <option value={3}>Wetlands</option>
             <option value={4}>Coastal</option>
             <option value={5}>Forestry</option>
+        </select>
+      </div>
+      <div>
+        <label htmlFor="is_open">Is Project Open:</label>
+        <select id="is_open" onChange={handleChange} value={project.is_open}>
+            <option value="">--Please choose an option</option>
+            <option value={1}>Yes</option>
+            <option value={2}>No</option>
+            
+        </select>
+      </div>
+      <div>
+        <label htmlFor="is_archived">Is Project Archived:</label>
+        <select id="is_archived" onChange={handleChange} value={project.is_archived}>
+            <option value="">--Please choose an option</option>
+            <option value={1}>Yes</option>
+            <option value={2}>No</option>
+            
         </select>
       </div>
       <div>
@@ -188,10 +208,11 @@ function ProjectUpdateForm() {
           onChange={handleChange}
         />
       </div>
-      <button type="submit" onClick={handleSubmit}>
+      <button type="submit" onClick={handleSubmit} className="all-btn">
         Update Project
       </button>
     </form>
+    </div>
   );
 }
 

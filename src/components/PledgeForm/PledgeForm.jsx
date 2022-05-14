@@ -50,7 +50,7 @@ function PledgeForm({ projectId }) {
   }
 
   return (
-    <form>
+    <form className="all-forms">
       <div>
         <label htmlFor="amount">Amount:</label>
         <input
@@ -77,7 +77,7 @@ function PledgeForm({ projectId }) {
           onChange={handleChange}
         />
       </div>
-      <button type="submit" onClick={handleSubmit}>
+      <button type="submit" onClick={handleSubmit} className="all-btn">
         Submit Pledge
       </button>
     </form>

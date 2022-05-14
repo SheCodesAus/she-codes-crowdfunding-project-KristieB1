@@ -73,7 +73,10 @@ function RegisterForm() {
 
 
     return (
-        <form>
+
+        <div>
+            <h3>Register to Create Projects or Pledge to Projects</h3>
+        <form className="all-forms">
             <div>
                 <label htmlFor="username">Username:</label>
                 <input
@@ -128,10 +131,11 @@ function RegisterForm() {
                     onChange={handleChange}
                 />
             </div>
-            <button type="submit" onClick={handleSubmit}>
+            <button type="submit" onClick={handleSubmit} className="all-btn">
                 Register
             </button>
         </form>
+        </div>
     );
 }
 

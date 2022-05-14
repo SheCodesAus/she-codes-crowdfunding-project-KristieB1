@@ -1,5 +1,5 @@
 body{
-  background-color: peachpuff;
+  background-color: #d6e6c2;
 }
 
 nav a {
@@ -10,15 +10,33 @@ nav a {
 
 
 
-nav {
-  background-color: antiquewhite;
-}
 
-#project-list {
+
+/* .UserHome-mainDiv{
+  display: grid;
+  
+  
+} */
+
+
+#MyProjects {
   display: grid;
   grid-template-columns: 30% 30% 30%;
   column-gap: 10px;
-  row-gap: 1px;
+  row-gap: 2px;
+  
+  
+}
+
+
+
+
+#project-list {
+  margin-left: 2rem;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  column-gap: 10px;
+  row-gap: 2px;
   
   
 }
@@ -28,3 +46,94 @@ div.project-card {
   background-color: whitesmoke;
 }
 
+.profile-card{
+  width: 70;
+  background-color: rgba(255, 255, 255, .15);  
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  border: 1px solid rgba(170, 188, 214, 0.3);
+}
+
+
+#hero-img{
+  width: 30rem;
+  height: 30rem;
+  border-radius: 2px;
+}
+
+
+#secondary-img{
+  width: 15rem;
+  height: 15rem;
+  border-radius: 2px;
+}
+
+#profile-img{
+  width: 20rem;
+  height: 20rem;
+  border-radius: 2px;
+}
+
+.all-forms{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 10px;
+  margin-top: 10px;
+  margin: 2px;
+  padding:5px;
+  width: 60%;
+  padding-bottom: 2px;
+
+
+  background-color: rgba(255, 255, 255, .15);  
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  border: 1px solid rgba(170, 188, 214, 0.3);
+}
+
+.all-forms input, select, textarea {
+  /* display: flex; */
+  margin: 2px ;
+  /* justify-content:baseline; */
+  align-items:flex-start;
+  padding: 3px;
+  background-color: #eff4e9;
+  
+
+}
+
+.all-forms label {
+  margin-right: 4px;
+}
+
+
+.all-forms button {
+  margin-top: 10px;
+}
+
+.all-btn{
+  display:flex;
+  flex-direction: column;
+  flex-flow: column;
+  padding: 0.5rem 1rem .5rem 1rem;
+  /* font-size: 1.25rem; */
+  line-height: 1.5;
+  border-radius: 10px;
+  background-color: #9DB682;
+  /* border-color: purple; */
+}
+
+.all-btn:hover{
+  background-color: #7b9b52;
+}
+
+a {
+  color: black;
+  
+}
+
+a:hover {
+  background-color: #7b9b52;
+}

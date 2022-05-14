@@ -3,6 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import "./Nav.css";
 
 
+// change nav bar options if user is logged in or not
 function Nav(){
 
     const navigate = useNavigate();
@@ -20,7 +21,7 @@ function Nav(){
     }
 
     const nevigateToUserHome = () => {
-        navigate("/users/:id")
+        navigate("/user/home")
     }
 
     const handleSignout = () => {
@@ -57,15 +58,17 @@ function Nav(){
         return (
 
             <nav>
-            <button onClick={handleSignout} className="login-btn">Sign out</button>
+            {/* <button onClick={handleSignout} className="all-btn">Sign out</button> */}
+            <button onClick={nevigateToUserHome} className="all-btn">My HomePage</button>
+            <button onClick={handleSignout} className="all-btn">Sign out</button>
             </nav>
             );
           }
         else {
         return (
             <nav>
-            <button onClick={navigateToLogin} className="login-btn">Login</button>
-            <button onClick={navigateToRegister} className="login-btn">Register</button>
+            <button onClick={navigateToLogin} className="all-btn">Login</button>
+            <button onClick={navigateToRegister} className="all-btn">Register</button>
             </nav>
             );
         }
@@ -73,17 +76,17 @@ function Nav(){
     // return (
     //     <div>
     //         isUserLoggedin
-    //         ? <button onClick={handleSignout} className="login-btn">Sign out</button>
-    //         : <button onClick={navigateToLogin} className="login-btn">Login</button> 
-    //          <button onClick={navigateToRegister} className="login-btn">Register</button>
+    //         ? <button onClick={handleSignout} className="all-btn">Sign out</button>
+    //         : <button onClick={navigateToLogin} className="all-btn">Login</button> 
+    //          <button onClick={navigateToRegister} className="all-btn">Register</button>
     //     </div>
 
 
 
         //  isUserLoggedin
-        //     ? <button onClick={handleSignout} className="login-btn">Sign out</button>
-        //     : <button onClick={navigateToLogin} className="login-btn">Login</button> 
-        //      <button onClick={navigateToRegister} className="login-btn">Register</button>
+        //     ? <button onClick={handleSignout} className="all-btn">Sign out</button>
+        //     : <button onClick={navigateToLogin} className="all-btn">Login</button> 
+        //      <button onClick={navigateToRegister} className="all-btn">Register</button>
         
     }
 
@@ -94,11 +97,11 @@ function Nav(){
             <div className="left-nav">
            
             <Link to="/">Homepage</Link>
-            <Link to="/user/home">My Home Page</Link>
+            {/* <Link to="/user/home">My Home Page</Link> */}
             <Link to="/projects">Create a Project</Link>
             </div>
         <header className="Header">
-            <h1>Header</h1>
+            <h1>EcoFund</h1>
         </header>
         <nav>
         <div className="right-nav">

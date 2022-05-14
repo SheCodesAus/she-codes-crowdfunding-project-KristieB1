@@ -7,12 +7,15 @@ function ProfileCard(props) {
     const { profileData } = props;
     return (
         <div className="profile-card">
-            <Link to="/users/home/">
-                <h2>{profileData.username}</h2>
-                <img src={profileData.avatar} alt="Profile avatar image"/>
-                <h3>{profileData.firstName}</h3>
-                <p>{profileData.bio}</p>
-            </Link>
+                <p>Username: {profileData.username}</p>
+                <img src={profileData.avatar} alt="Profile avatar image" id="profile-img"/>
+                <p>First Name: {profileData.firstName}</p>
+                <p>Last Name: {profileData.lastName}</p>
+                <p>Email: {profileData.email}</p>
+                <p>Bio: {profileData.bio}</p>
+                <a href={"/users/home/"} >
+                <button className="all-btn"> Update Profile </button>
+                </a>
         </div>
     );
 }

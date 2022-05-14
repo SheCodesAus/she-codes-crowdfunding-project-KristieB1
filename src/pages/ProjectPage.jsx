@@ -41,21 +41,21 @@ function ProjectPage() {
     
     return (
          // <React.Fragment> like a div but not</React.Fragment> or <>
-        <div>
+        <div className="project-page">
             <h2>{projectData.title}</h2>
             <h3>Status: {projectData.status}</h3>
-            <img src={projectData.primary_image} alt="hero image"/>
-            <h3>Date Created: {projectData.date_created}</h3>
-            <h3>{`Status: ${projectData.is_open}`}</h3>
-            <h3>Project Goal: {Dollars()}{projectData.goal} {Time()}</h3>
-            <h3>Goal Date: {projectData.goal_date}</h3>
-            <h3>Progress %: {projectData.progress_perc}</h3>
-            <img src={projectData.secondary_image} alt="project image 2"/>
-            <h3>Project blurb: {projectData.blurb}</h3>
-            <h3>Project Info: {projectData.description}</h3>
+            <img src={projectData.primary_image} alt="hero image" id="hero-img"/>
+            <h4>Date Created: {projectData.date_created}</h4>
+            {/* <h3>{`Status: ${projectData.is_open}`}</h3> */}
+            <h4>Project Goal: {Dollars()}{projectData.goal} {Time()}</h4>
+            <h4>Goal Date: {projectData.goal_date}</h4>
+            <h4>Percentage Progress towards goal: {projectData.progress_perc}</h4>
+            <img src={projectData.secondary_image} alt="project image 2" id="secondary-img"/>
+            <h4>Project blurb: {projectData.blurb}</h4>
+            <p>Project Info: {projectData.description}</p>
             
             <a href={"/projects/"+projectData.id} >
-                <button> Update Project </button>
+                <button className="all-btn"> Update Project </button>
             </a>
             <h3>Pledges:</h3>
             <p>Pledge Type: {projectData.pledge_type}</p>

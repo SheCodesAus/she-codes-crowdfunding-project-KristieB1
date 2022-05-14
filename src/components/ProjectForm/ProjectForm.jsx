@@ -68,7 +68,9 @@ function ProjectForm() {
   }
 
   return (
-    <form>
+    <div>
+      <h2>Create a new Project</h2>
+    <form className="all-forms">
       <div>
         <label htmlFor="title">Project Title:</label>
         <input
@@ -79,7 +81,7 @@ function ProjectForm() {
         />
       </div>
       <div>
-        <label htmlFor="category_id">Category:</label>
+        <label htmlFor="category_id">Category: </label>
         <select id="category_id" onChange={handleChange}>
             <option value="">--Please choose an option</option>
             <option value={1}>Miscellaneous</option>
@@ -90,7 +92,7 @@ function ProjectForm() {
         </select>
       </div>
       <div>
-        <label htmlFor="pledge_type_id">Pledge Type:</label>
+        <label htmlFor="pledge_type_id">Pledge Type: </label>
         <select id="pledge_type_id" onChange={handleChange}>
             <option value="">--Please choose an option</option>
             <option value={1}>financial</option>
@@ -98,7 +100,7 @@ function ProjectForm() {
         </select>
       </div>
       <div>
-        <label htmlFor="goal">Goal Amount:</label>
+        <label htmlFor="goal">Goal Amount: </label>
         <input
           type="number"
           id="goal"
@@ -107,7 +109,7 @@ function ProjectForm() {
         />
       </div>
       <div>
-        <label htmlFor="goal_date">Goal Date:</label>
+        <label htmlFor="goal_date">Goal Date: </label>
         <input
           type="date"
           id="goal_date"
@@ -116,7 +118,7 @@ function ProjectForm() {
         />
       </div>
       <div>
-        <label htmlFor="blurb">Blurb:</label>
+        <label htmlFor="blurb">Blurb: </label>
         <input
           type="textarea"
           id="blurb"
@@ -125,7 +127,7 @@ function ProjectForm() {
         />
       </div>
       <div>
-        <label htmlFor="description">Description:</label>
+        <label htmlFor="description">Description: </label>
         <input
           type="textarea"
           id="description"
@@ -134,7 +136,7 @@ function ProjectForm() {
         />
       </div>
       <div>
-        <label htmlFor="primary_image">Image:</label>
+        <label htmlFor="primary_image">Image: </label>
         <input
           type="url"
           id="primary_image"
@@ -143,7 +145,7 @@ function ProjectForm() {
         />
       </div>
       <div>
-        <label htmlFor="secondary_image">Image:</label>
+        <label htmlFor="secondary_image">Image: </label>
         <input
           type="url"
           id="secondary_image"
@@ -151,10 +153,11 @@ function ProjectForm() {
           onChange={handleChange}
         />
       </div>
-      <button type="submit" onClick={handleSubmit}>
+      <button type="submit" onClick={handleSubmit} className="all-btn">
         Create New Project
       </button>
     </form>
+    </div>
   );
 }
 

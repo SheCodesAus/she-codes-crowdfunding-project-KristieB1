@@ -28,6 +28,8 @@ function App() {
           <Route path="/users/home/" element={<UserEditPage />} />
           <Route path="/user/home/" element={<UserHomePage />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="/myProjects/" element={<UserHomePage />} />
+          <Route path="/myPledges/" element={<UserHomePage />} />
         </Routes>
       </div>
     </Router>
