@@ -103,12 +103,12 @@ function Nav(){
         <header className="Header">
             <h1>EcoFund</h1>
         </header>
-        <nav>
+       
         <div className="right-nav">
             {checkUser()}
             {/* <Link to="/project">ProjectPage</Link> */}
             </div>
-        </nav>
+        
        
            
 
