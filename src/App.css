@@ -137,3 +137,7 @@ a {
 a:hover {
   background-color: #7b9b52;
 }
+
+nav{
+  display: flex;
+}
