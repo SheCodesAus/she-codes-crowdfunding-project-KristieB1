@@ -9,11 +9,13 @@ nav {
     background-color: #75B066;
 }
 
+
+
 .navbar{  
     flex-basis: 20%;
     display: flex;
     justify-content: space-between;
-    /* align-items: flex-end; */
+    align-items: flex-end;
     padding: 1rem;
     background-color: #75B066;
 
