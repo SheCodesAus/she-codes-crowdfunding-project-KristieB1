@@ -75,3 +75,7 @@ h1{
 nav{
     display: flex;
   }
+
+nav.navbar {
+    justify-content: space-between;
+}
