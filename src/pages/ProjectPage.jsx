@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 // import { oneProject } from "../data";
 import PledgeForm from "../components/PledgeForm/PledgeForm";
+import ProgressBar from "../components/ProgressBar";
 
 function ProjectPage() {
     const [projectData, setProjectData] = useState();
@@ -49,7 +50,8 @@ function ProjectPage() {
             {/* <h3>{`Status: ${projectData.is_open}`}</h3> */}
             <h4>Project Goal: {Dollars()}{projectData.goal} {Time()}</h4>
             <h4>Goal Date: {projectData.goal_date}</h4>
-            <h4>Percentage Progress towards goal: {projectData.progress_perc}</h4>
+            <h4>Percentage Progress towards goal:</h4>
+            <ProgressBar completed={projectData.progress_perc} bgcolor={"#75B066"} />
             <img src={projectData.secondary_image} alt="project image 2" id="secondary-img"/>
             <h4>Project blurb: {projectData.blurb}</h4>
             <p>Project Info: {projectData.description}</p>

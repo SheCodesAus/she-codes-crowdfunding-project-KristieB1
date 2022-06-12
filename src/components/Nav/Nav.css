@@ -6,7 +6,7 @@
     padding: 3rem;
 }; */
 nav {
-    background-color: #75B066;
+    background-color: #4a843d;
     display: flex;
 }
 
@@ -18,37 +18,56 @@ nav {
     justify-content: space-between;
     align-items: flex-end;
     padding: 1rem;
-    background-color: #75B066;
+    background-color: #4a843d;
 
-};
+}
+
 .left-nav{
     display:flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-self: flex-start;
+    flex-direction: column;
+    align-items: center;
     gap: 0.5rem;
 }
 
 .right-nav{
     display:flex;
+    /* flex-direction: column;
+    flex-flow: column; */
     flex-direction: column;
-    flex-flow: column;
+    align-items: center;
     align-self: flex-end;
+    justify-content: flex-end;
  
     gap: 0.5rem;
 }
 
-
+.right-nav button {
+    flex-direction: column;
+}
 
 
 .all-btn{
     display:flex;
-    flex-direction: column;
-    flex-flow: column;
-    padding: 0.5rem 1rem .5rem 1rem;
-
-    line-height: 1.5;
+    /* flex-direction: row;
+    flex-flow: row; */
+    padding: 0.5rem .5rem .5rem .5rem;
+    align-items: center;
+    line-height: 1;
     border-radius: 10px;
  
+}
+
+.all-btn a{
+    text-decoration: none;
+
+}
+
+button.all-btn{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
 }
 
 .login-btn:hover{
@@ -66,9 +85,15 @@ a:hover {
 
 
 
-h1{
+/* h1{
     color: white;
     font-size: xx-large;
+} */
+
+nav img {
+    
+    opacity: 90%;
+    border-radius: 20px;
 }
 
 

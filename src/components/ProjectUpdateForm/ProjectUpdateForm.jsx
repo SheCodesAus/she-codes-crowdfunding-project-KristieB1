@@ -140,8 +140,8 @@ function ProjectUpdateForm() {
         <label htmlFor="is_open">Is Project Open:</label>
         <select id="is_open" onChange={handleChange} value={project.is_open}>
             <option value="">--Please choose an option</option>
+            <option value={0}>No</option>
             <option value={1}>Yes</option>
-            <option value={2}>No</option>
             
         </select>
       </div>
@@ -149,8 +149,8 @@ function ProjectUpdateForm() {
         <label htmlFor="is_archived">Is Project Archived:</label>
         <select id="is_archived" onChange={handleChange} value={project.is_archived}>
             <option value="">--Please choose an option</option>
+            <option value={0}>No</option>
             <option value={1}>Yes</option>
-            <option value={2}>No</option>
             
         </select>
       </div>

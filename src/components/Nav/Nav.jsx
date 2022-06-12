@@ -1,6 +1,7 @@
 import React from "react";
 import {Link, useNavigate} from "react-router-dom";
 import "./Nav.css";
+import logo from "../images/logo.png";
 
 
 // change nav bar options if user is logged in or not
@@ -47,73 +48,76 @@ function Nav(){
         // const userId = window.localStorage.getItem("id");
         const isUserLoggedin = !(token === null || token === undefined || token === "undefined")
         //if (!isUserLoggedin || isUserLoggedin===null || isUserLoggedin===undefined || isUserLoggedin==="undefined"){
-        if(isUserLoggedin) {
-        console.log("user is logged in isUserLoggedin=", isUserLoggedin)
+        if (isUserLoggedin) {
+            console.log("user is logged in isUserLoggedin=", isUserLoggedin)
         }
         else {
-            console.log("user is not logged in isUserLoggedin=", isUserLoggedin)   
+            console.log("user is not logged in isUserLoggedin=", isUserLoggedin)
         }
 
         if (isUserLoggedin) {
-        return (
+            return (
 
-            <nav>
-            {/* <button onClick={handleSignout} className="all-btn">Sign out</button> */}
-            <button onClick={nevigateToUserHome} className="all-btn">My HomePage</button>
-            <button onClick={handleSignout} className="all-btn">Sign out</button>
-            </nav>
-            );
-          }
-        else {
-        return (
-            <nav>
-            <button onClick={navigateToLogin} className="all-btn">Login</button>
-            <button onClick={navigateToRegister} className="all-btn">Register</button>
-            </nav>
+                <div className="right-nav">
+                    {/* <button onClick={handleSignout} className="all-btn">Sign out</button> */}
+                    <button onClick={nevigateToUserHome} className="all-btn">My HomePage</button>
+                    <button onClick={handleSignout} className="all-btn">Sign out</button>
+                </div>
             );
         }
-
-    // return (
-    //     <div>
-    //         isUserLoggedin
-    //         ? <button onClick={handleSignout} className="all-btn">Sign out</button>
-    //         : <button onClick={navigateToLogin} className="all-btn">Login</button> 
-    //          <button onClick={navigateToRegister} className="all-btn">Register</button>
-    //     </div>
-
-
-
+        else {
+            return (
+                <div className="right-nav">
+                    <button onClick={navigateToLogin} className="all-btn">Login</button>
+                    <button onClick={navigateToRegister} className="all-btn">Register</button>
+                </div>
+            );
+        }
+        // return (
+        //     <div>
+        //         isUserLoggedin
+        //         ? <button onClick={handleSignout} className="all-btn">Sign out</button>
+        //         : <button onClick={navigateToLogin} className="all-btn">Login</button> 
+        //          <button onClick={navigateToRegister} className="all-btn">Register</button>
+        //     </div>
         //  isUserLoggedin
         //     ? <button onClick={handleSignout} className="all-btn">Sign out</button>
         //     : <button onClick={navigateToLogin} className="all-btn">Login</button> 
         //      <button onClick={navigateToRegister} className="all-btn">Register</button>
-        
+
     }
 
     return(
 
         <div>
             <nav className="navbar">
-            <div className="left-nav">
-           
-            <Link to="/">Homepage</Link>
-            {/* <Link to="/user/home">My Home Page</Link> */}
-            <Link to="/projects">Create a Project</Link>
-            </div>
-        <header className="Header">
-            <h1>EcoFund</h1>
-        </header>
-       
-        <div className="right-nav">
-            {checkUser()}
-            {/* <Link to="/project">ProjectPage</Link> */}
-            </div>
-        
-       
-           
+                <div className="left-nav">
+                    <button className="all-btn">
+                        <Link to="/">Homepage</Link>
+                    </button>
+                    {/* <Link to="/user/home">My Home Page</Link> */}
+                    <button className="all-btn">
+                        <Link to="/projects">Create a Project</Link>
+                    </button>
+                    <button className="all-btn">
+                        <Link to="/allProjects">View all Projects</Link>
+                    </button>
 
-            
-        </nav>
+                </div>
+                <header className="Header">
+                    
+                    <Link to="/">
+                    <img src={logo} />
+                    </Link>
+                </header>
+
+                {checkUser()}
+
+                {/* <div className="right-nav">
+                    
+                    {/* <Link to="/project">ProjectPage</Link> * / }
+                </div> */}
+            </nav>
         </div>
     );
 }
